@@ -1,13 +1,14 @@
 import { TaskCard } from "../TaskCard/TaskCard";
+import { TaskItem, TaskList } from "./TaskList.styled";
 
 export const TasksList = ({ tasks, onDelete}) => {
     return (
-      <ul>
+      <TaskList>
         {tasks.map(task => (
-          <li key={task.id}>
+          <TaskItem key={task.id}>
            <TaskCard taskItem={task} onDelete={onDelete} />
-          </li>
+          </TaskItem>
         ))}
-      </ul>
+      </TaskList>
     );
   };

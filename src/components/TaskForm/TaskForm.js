@@ -1,18 +1,19 @@
-import { Formik, Field, Form } from 'formik';
-import * as Yup from 'yup';
+import { Formik} from "formik";
+import * as Yup from "yup";
+import { Button, FieldStyled, FormStyled } from "./TaskForm.styled";
 
 const taskSchema = Yup.object().shape({
   text: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
 });
 
 export const TaskForm = ({ onAdd }) => {
   return (
     <Formik
       initialValues={{
-        text: ''
+        text: "",
       }}
       validationSchema={taskSchema}
       onSubmit={(values, actions) => {
@@ -20,15 +21,13 @@ export const TaskForm = ({ onAdd }) => {
         actions.resetForm();
       }}
     >
-      <Form>
+      <FormStyled>
+        
         <label>
-          Text
-          <Field name="text" type="text" required />
+        <FieldStyled name="text" type="text"></FieldStyled>
         </label>
-
-
-        <button type="submit">Add contact</button>
-      </Form>
+        <Button type="submit">Add task</Button>
+      </FormStyled>
     </Formik>
   );
 };

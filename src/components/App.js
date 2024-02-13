@@ -1,10 +1,10 @@
-
 import { useEffect, useState } from "react";
 import { TasksList } from "./TaskList/TaskList";
 import { TaskForm } from "./TaskForm/TaskForm";
 
 import { nanoid } from "nanoid";
 import { Filter } from "./Filter/Filter";
+import { Container, Title } from "./Container/Container.styled";
 
 function App() {
   const [tasks, setTasks] = useState(() => {
@@ -13,10 +13,7 @@ function App() {
       return JSON.parse(savedTasks);
     }
     return [
-      { id: "id-1", text: "go to the gym" },
-      { id: "id-2", text: "learn new vocabulary" },
-      { id: "id-3", text: "feed the cat" },
-      { id: "id-4", text: "live" },
+      { id: "id-1", text: "do some assignments" },
     ];
   });
 
@@ -34,7 +31,8 @@ function App() {
     if (nameExists) {
       alert(`${newForm.text}' is already in tasks.`);
     } else {
-      setTasks((prevState) => [...prevState, { id: nanoid(), ...newForm }]);
+      setTasks((prevState) => [...prevState, { id: nanoid(), ...newForm }] ,);
+     
     }
   };
 
@@ -54,11 +52,12 @@ function App() {
   });
 
   return (
-    <div>
+    <Container>
+      <Title>TO DO LIST </Title>
       <TaskForm onAdd={addForm} />
       <Filter task={filter} filterTasks={filterTasks} />
       <TasksList tasks={visibleTasks} onDelete={deleteTask} />
-    </div>
+    </Container>
   );
 }
 

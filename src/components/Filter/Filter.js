@@ -1,8 +1,15 @@
-export const Filter = ({task, filterTasks})=>{
-    return (
-        <div>
-            <input  value ={task} type="text"
-            onChange={evt=>filterTasks(evt.target.value)}/>
-        </div>
-    )
-}
+import { FieldFilter, FormFilter } from "./Filter.styled";
+
+export const Filter = ({ task, filterTasks }) => {
+  return (
+    <FormFilter>
+      <FieldFilter
+        value={task}
+        name="filter"
+        type="text"
+        placeholder="find your task"
+        onChange={(evt) => filterTasks(evt.target.value)}
+      />
+    </FormFilter>
+  );
+};

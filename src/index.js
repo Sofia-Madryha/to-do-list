@@ -7,12 +7,12 @@ import { ThemeProvider } from "styled-components";
 
 const theme = {
   colors: {
-    accent: "#CD7F32",
-    orange: "#DAA520",
+    accent: "#D3D3D3",
+    white: "#FFFAF0",
     black: "#000000",
     lightOrange: "#FFDEAD",
   },
-  spacing: (value) => `${value * 4}px`,
+
 };
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
